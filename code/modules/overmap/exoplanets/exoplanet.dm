@@ -3,6 +3,7 @@
 	var/list/seeds = list()
 	var/list/animals = list()
 	var/datum/gas_mixture/atmosphere
+	var/lightlevel
 	in_space = 0
 	var/maxx
 	var/maxy
@@ -19,6 +20,9 @@
 
 	world.maxz++
 	forceMove(locate(1,1,world.maxz))
+	map_z = GetConnectedZlevels(z)
+	for(var/zlevel in map_z)
+		map_sectors["[zlevel]"] = src
 
 	..()
 
@@ -206,10 +210,22 @@
 /turf/simulated/floor/exoplanet/New()
 	if(GLOB.using_map.use_overmap)
 		var/obj/effect/overmap/sector/exoplanet/E = map_sectors["[z]"]
-		if(istype(E) && E.atmosphere)
-			initial_gas = E.atmosphere.gas.Copy()
-			temperature = E.atmosphere.temperature
+		if(istype(E))
+			if(E.atmosphere)
+				initial_gas = E.atmosphere.gas.Copy()
+				temperature = E.atmosphere.temperature
+			if(E.light)
+				light_power = E.lightlevel
+				light_range = 2
 	..()
+
+/turf/simulated/floor/exoplanet/ex_act(severity)
+	switch(severity)
+		if(1)
+			ChangeTurf(get_base_turf_by_area(src))
+		if(2)
+			if(prob(40))
+				ChangeTurf(get_base_turf_by_area(src))
 
 /turf/simulated/floor/exoplanet/water/shallow
 	name = "shallow water"
