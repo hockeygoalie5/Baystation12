@@ -20,6 +20,9 @@
 
 	world.maxz++
 	forceMove(locate(1,1,world.maxz))
+	map_z = GetConnectedZlevels(z)
+	for(var/zlevel in map_z)
+		map_sectors["[zlevel]"] = src
 
 	..()
 
