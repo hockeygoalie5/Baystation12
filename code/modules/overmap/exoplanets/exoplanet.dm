@@ -3,6 +3,7 @@
 	var/list/seeds = list()
 	var/list/animals = list()
 	var/datum/gas_mixture/atmosphere
+	var/lightlevel
 	in_space = 0
 	var/maxx
 	var/maxy
@@ -206,9 +207,13 @@
 /turf/simulated/floor/exoplanet/New()
 	if(GLOB.using_map.use_overmap)
 		var/obj/effect/overmap/sector/exoplanet/E = map_sectors["[z]"]
-		if(istype(E) && E.atmosphere)
-			initial_gas = E.atmosphere.gas.Copy()
-			temperature = E.atmosphere.temperature
+		if(istype(E))
+			if(E.atmosphere)
+				initial_gas = E.atmosphere.gas.Copy()
+				temperature = E.atmosphere.temperature
+			if(E.light)
+				light_power = E.lightlevel
+				light_range = 2
 	..()
 
 /turf/simulated/floor/exoplanet/ex_act(severity)
