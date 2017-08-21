@@ -211,6 +211,14 @@
 			temperature = E.atmosphere.temperature
 	..()
 
+/turf/simulated/floor/exoplanet/ex_act(severity)
+	switch(severity)
+		if(1)
+			ChangeTurf(get_base_turf_by_area(src))
+		if(2)
+			if(prob(40))
+				ChangeTurf(get_base_turf_by_area(src))
+
 /turf/simulated/floor/exoplanet/water/shallow
 	name = "shallow water"
 	icon_state = "seashallow"
