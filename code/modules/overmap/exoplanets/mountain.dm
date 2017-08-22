@@ -3,6 +3,8 @@
 	desc = "A planet with rocky formations on the surface, exposing minerals. Rest of terrain varies."
 
 /obj/effect/overmap/sector/exoplanet/rocks/generate_map()
+	if(prob(50))
+		lightlevel = rand(1,10)/10 //total random
 	for(var/zlevel in map_z)
 		new /datum/random_map/automata/cave_system/mountains(md5(world.time + rand(-100,1000)),1,1,zlevel,maxx,maxy,0,1,1)
 		var/datum/random_map/noise/exoplanet/M = pick(subtypesof(/datum/random_map/noise/exoplanet))

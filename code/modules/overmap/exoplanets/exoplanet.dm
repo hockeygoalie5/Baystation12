@@ -214,7 +214,7 @@
 			if(E.atmosphere)
 				initial_gas = E.atmosphere.gas.Copy()
 				temperature = E.atmosphere.temperature
-			if(E.light)
+			if(E.lightlevel)
 				light_power = E.lightlevel
 				light_range = 2
 	..()

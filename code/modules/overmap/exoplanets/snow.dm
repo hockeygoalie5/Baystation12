@@ -10,7 +10,7 @@
 /obj/effect/overmap/sector/exoplanet/snow/generate_atmosphere()
 	..()
 	if(atmosphere)
-		atmosphere.temperature = T0C - rand(0, 50)
+		atmosphere.temperature = T0C - rand(10, 100)
 		atmosphere.update_values()
 
 /datum/random_map/noise/exoplanet/snow
@@ -27,7 +27,7 @@
 
 /area/exoplanet/snow
 	ambience = list('sound/effects/wind/tundra0.ogg','sound/effects/wind/tundra1.ogg','sound/effects/wind/tundra2.ogg','sound/effects/wind/spooky0.ogg','sound/effects/wind/spooky1.ogg')
-	base_turf = /turf/simulated/exoplanet/floor/snow
+	base_turf = /turf/simulated/floor/exoplanet/snow/
 
 /turf/simulated/floor/exoplanet/ice
 	name = "ice"
@@ -39,6 +39,6 @@
 	icon = 'icons/turf/snow.dmi'
 	icon_state = "snow"
 
-/turf/simulated/exoplanet/floor/snow/New()
+/turf/simulated/floor/exoplanet/snow/New()
 	icon_state = pick("snow[rand(1,12)]","snow0")
 	..()

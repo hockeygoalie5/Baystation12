@@ -53,9 +53,5 @@
 
 /turf/simulated/floor/exoplanet/grass
 	name = "grass"
-	icon = 'icons/misc/beach.dmi'
-	icon_state = "dgrass0"
-
-/turf/simulated/floor/exoplanet/grass/New()
-	icon_state = "dgrass[rand(0,4)]"
-	..()
+	icon = 'icons/jungle.dmi'
+	icon_state = "grass2"

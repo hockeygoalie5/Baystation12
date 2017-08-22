@@ -13,7 +13,7 @@
 /obj/effect/overmap/sector/exoplanet/desert/generate_atmosphere()
 	..()
 	if(atmosphere)
-		atmosphere.temperature = T20C + rand(10, 50)
+		atmosphere.temperature = T20C + rand(20, 100)
 		atmosphere.update_values()
 
 /obj/effect/overmap/sector/exoplanet/desert/update_biome()
