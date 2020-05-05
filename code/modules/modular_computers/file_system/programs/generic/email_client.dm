@@ -41,6 +41,7 @@
 
 /datum/computer_file/program/email_client/proc/new_mail_notify()
 	computer.visible_notification("You got mail!")
+	computer.audible_notification("sound/machines/ping.ogg")
 
 /datum/computer_file/program/email_client/process_tick()
 	..()
